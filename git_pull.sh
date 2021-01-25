@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 ## Author: Evine Deng
-## Source: https://github.com/EvineDeng/jd-base
+## Source: https://github.com/ohmybobo/jds
 ## Modified： 2021-01-22
 ## Version： v3.6.1
 
@@ -28,15 +28,15 @@ ContentNewTask=${ShellDir}/new_task
 ContentDropTask=${ShellDir}/drop_task
 SendCount=${ShellDir}/send_count
 isTermux=${ANDROID_RUNTIME_ROOT}${ANDROID_ROOT}
-WhichDep=$(grep "/jd-base" "${ShellDir}/.git/config")
+WhichDep=$(grep "/jds" "${ShellDir}/.git/config")
 Scripts2URL=https://github.com/shylocks/Loon
 
 if [[ ${WhichDep} == *github* ]]; then
   ScriptsURL=https://github.com/LXK9301/jd_scripts
-  ShellURL=https://github.com/EvineDeng/jd-base
+  ShellURL=https://github.com/ohmybobo/jds
 else
   ScriptsURL=https://gitee.com/lxk0301/jd_scripts
-  ShellURL=https://gitee.com/evine/jd-base
+  ShellURL=https://gitee.com/evine/jds
 fi
 
 ## 更新shell脚本
@@ -109,7 +109,7 @@ function Change_JoyRunPins {
     PinALL="${PinTempFormat},${PinALL}"
     let j--
   done
-  PinEvine="Evine,做一颗潇洒的蛋蛋,Evine007,jd_7bb2be8dbd65c,jd_6fae2af082798,jd_664ecc3b78945,277548856_m,米大眼老鼠,"
+  PinEvine="鬼佬,jd_7547baef33a21,queenho,Bobo_vera,jd_ivyg521,jd_6ddb409109470,"
   PinALL="${PinALL}${PinEvine}"
   perl -i -pe "{s|(let invite_pins = \[\")(.+\"\];?)|\1${PinALL}\2|; s|(let run_pins = \[\")(.+\"\];?)|\1${PinALL}\2|}" ${ScriptsDir}/jd_joy_run.js
 }
