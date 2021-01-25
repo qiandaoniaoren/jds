@@ -36,7 +36,7 @@ if [[ ${WhichDep} == *github* ]]; then
   ShellURL=https://github.com/ohmybobo/jds
 else
   ScriptsURL=https://gitee.com/lxk0301/jd_scripts
-  ShellURL=https://gitee.com/evine/jds
+  ShellURL=https://github.com/ohmybobo/jds
 fi
 
 ## 更新shell脚本
