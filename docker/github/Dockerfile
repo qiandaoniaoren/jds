@@ -2,7 +2,7 @@ FROM node:lts-alpine
 LABEL maintainer="Evine Deng <Evine@foxmail.com>"
 ARG JD_BASE_URL=https://github.com/ohmybobo/jds
 ARG JD_BASE_BRANCH=main
-ARG JD_SCRIPTS_URL=https://github.com/LXK9301/jd_scripts
+ARG JD_SCRIPTS_URL=https://github.com/ohmybobo/jd_scripts
 ARG JD_SCRIPTS_BRANCH=master
 ARG JD_SCRIPTS2_URL=https://github.com/shylocks/Loon
 ARG JD_SCRIPTS2_BRANCH=main
