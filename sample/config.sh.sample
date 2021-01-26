@@ -1,6 +1,6 @@
-## Version: v3.22.0
-## Date: 2021-01-25
-## Update Content: 增加炸年兽组队PK队伍互助填写区域。
+## Version: v3.26.0
+## Date: 2021-01-26
+## Update Content: 增加神仙书院（jd_immortal.js）脚本需要的环境变量JD_IMMORTAL_LATLON。
 
 ## 上面版本号中，如果第2位数字有变化，那么代表增加了新的参数，如果只有第3位数字有变化，仅代表更新了注释，没有增加新的参数，可更新可不更新
 ## 如需更新，请参考WIKI（https://github.com/EvineDeng/jd-base/wiki）中"如何更新配置文件"部分的操作说明，进行智能比对后修改。
@@ -9,7 +9,7 @@
 ## 以下配置中，带有 export 申明的，均由LXK9301大佬定义，详见：https://github.com/LXK9301/jd_scripts/blob/master/githubAction.md#%E4%B8%8B%E6%96%B9%E6%8F%90%E4%BE%9B%E4%BD%BF%E7%94%A8%E5%88%B0%E7%9A%84-secrets%E5%85%A8%E9%9B%86%E5%90%88
 ## 其他互助码，考虑到直接按LXK9301大佬定义的变量去填的话，一是不方便记忆，二是容易搞混，所以最终的变量将由脚本去组合，你只要按注释去填即可
 ## 除此之外，还额外增加了是否自动删除失效任务AutoDelCron、是否自动增加新任务AutoAddCron、删除旧日志时间RmLogDaysAgo、随机延迟启动任务RandomDelay、是否添加自定义脚本EnableExtraShell五个人性化的设置供选择
-## 所有赋值等号两边不能有空格，所有的值请一律在两侧添加半角的双引号，如果变量值中含有双引号，则外侧改为一对半角的单引号。
+## 所有赋值等号两边不能有空格，所有的值请一律在两侧添加半角的双引号
 ## 所有的赋值都可以参考 “定义东东萌宠是否静默运行” 部分，在不同时间设置不同的值，以达到你想要的效果，具体判断条件如下：
 ## $(date "+%d") 当前的日期，如：13
 ## $(date "+%w") 当前是星期几，如：3
@@ -26,11 +26,7 @@
 ## 必须按数字顺序1、2、3、4...依次编号下去，例子只有6个，超出6个你继续往下编号即可
 ## 不允许有汉字，如果ID有汉字，请在PC浏览器上获取Cookie，会自动将汉字转换为URL编码
 Cookie1=""
-Cookie2=""
-Cookie3=""
-Cookie4=""
-Cookie5=""
-Cookie6=""
+
 
 
 ################################## 定义是否自动删除失效的脚本与定时任务（选填） ##################################
@@ -38,7 +34,6 @@ Cookie6=""
 ## 检测文件：LXK9301/jd_scripts 仓库中的 docker/crontab_list.sh，和 shylocks/Loon 仓库中的 docker/crontab_list.sh
 ## 当设置为 "true" 时，会自动从检测文件中读取比对删除的任务（识别以“jd_”、“jr_”、“jx_”开头的任务）
 ## 当设置为 "true" 时，脚本只会删除一整行失效的定时任务，不会修改其他现有任务，所以任何时候，你都可以自己调整你的crontab.list
-## 当设置为 "true" 时，如果你有添加额外脚本是以“jd_”“jr_”“jx_”开头的，如检测文件中，会被删除，不是以“jd_”“jr_”“jx_”开头的任务则不受影响
 AutoDelCron="true"
 
 
@@ -53,7 +48,7 @@ AutoAddCron="true"
 
 ################################## 定义删除日志的时间（选填） ##################################
 ## 定义在运行删除旧的日志任务时，要删除多少天以前的日志，请输入正整数，不填则禁用删除日志的功能
-RmLogDaysAgo="7"
+RmLogDaysAgo="3"
 
 
 ################################## 定义随机延迟启动任务（选填） ##################################
@@ -75,12 +70,12 @@ RandomDelay="300"
 export PUSH_KEY=""
 
 ## 2. BARK，教程（看BARK_PUSH和BARK_SOUND的说明）：https://github.com/LXK9301/jd_scripts/blob/master/githubAction.md#%E4%B8%8B%E6%96%B9%E6%8F%90%E4%BE%9B%E4%BD%BF%E7%94%A8%E5%88%B0%E7%9A%84-secrets%E5%85%A8%E9%9B%86%E5%90%88
-export BARK_PUSH=""
-export BARK_SOUND=""
+export BARK_PUSH="HtMhUso8dADrDJCwsXdryW"
+export BARK_SOUND="shake"
 
 ## 3. Telegram，如需使用，TG_BOT_TOKEN和TG_USER_ID必须同时赋值，教程：https://github.com/LXK9301/jd_scripts/blob/master/backUp/TG_PUSH.md
-export TG_BOT_TOKEN=""
-export TG_USER_ID=""
+export TG_BOT_TOKEN="1492958966:AAHXY1jdblSBevNb0JRuwQoelLqowQ5p3x0"
+export TG_USER_ID="893126794"
 
 ## 4. 钉钉，教程（看DD_BOT_TOKEN和DD_BOT_SECRET部分）：https://github.com/LXK9301/jd_scripts/blob/master/githubAction.md#%E4%B8%8B%E6%96%B9%E6%8F%90%E4%BE%9B%E4%BD%BF%E7%94%A8%E5%88%B0%E7%9A%84-secrets%E5%85%A8%E9%9B%86%E5%90%88
 export DD_BOT_TOKEN=""
@@ -111,107 +106,80 @@ export QYWX_AM=""
 ## 关闭通知，那么请在下方填入0
 ## 简洁通知，那么请在下方填入1，其效果见：https://github.com/LXK9301/jd_scripts/blob/master/icon/bean_sign_simple.jpg
 ## 原始通知，那么请在下方填入2，如果不填也默认为2，内容比较长，这也是默认通知方式
-NotifyBeanSign=""
+NotifyBeanSign="0"
 
 
 ################################## 定义每日签到每个接口间的延迟时间（选填） ##################################
 ## 默认每个签到接口并发无延迟，如需要依次进行每个接口，请自定义延迟时间，单位为毫秒，延迟作用于每个签到接口, 如填入延迟则切换顺序签到(耗时较长)
-export JD_BEAN_STOP=""
+export JD_BEAN_STOP="100"
 
 
 ################################## 定义东东农场互助（选填） ##################################
 ## 具体填法及要求详见：https://github.com/EvineDeng/jd-base/wiki/FAQ
-MyFruit1=""
-MyFruit2=""
-MyFruit3=""
-MyFruit4=""
-MyFruit5=""
-MyFruit6=""
-MyFruitA=""
-MyFruitB=""
+MyFruitA="b89d91063fb944bf95df58314e7b00f9"
+MyFruitB="db34eebcf9424eeeacd6afbfd07e27fc"
+MyFruitC="238d48959bcb48328fd16121124fdb6a"
+MyFruitD="a1284041121d46a894ddfeac7d8d8b6f"
+MyFruitE="2d8bbe5a2fbf4843bc3598bbc4ad40e9"
+MyFruitF="835957daa70342efa659c8d1138f93c6"
 
-ForOtherFruit1=""
-ForOtherFruit2=""
-ForOtherFruit3=""
-ForOtherFruit4=""
-ForOtherFruit5=""
-ForOtherFruit6=""
+
+ForOtherFruit1="${MyFruitA}@${MyFruitB}@${MyFruitC}@${MyFruitD}@${MyFruitE}@${MyFruitF}"
+
 
 
 ################################## 定义东东萌宠互助（选填） ##################################
 ## 具体填法及要求详见：https://github.com/EvineDeng/jd-base/wiki/FAQ
-MyPet1=""
-MyPet2=""
-MyPet3=""
-MyPet4=""
-MyPet5=""
-MyPet6=""
-MyPetA=""
-MyPetB=""
+MyPetA="MTE1NDUwMTI0MDAwMDAwMDM5OTQ3NjAx"
+MyPetB="MTAxODExNDYxMTEwMDAwMDAwNDAwODk4MzU="
+MyPetC="MTE1NDQ5OTUwMDAwMDAwNDAyNzM4NDE="
+MyPetD="MTAxODExNDYxMTAwMDAwMDAwNDA0MTY3NDc="
+MyPetE="MTE1NDQ5OTUwMDAwMDAwNDIwNTU0MTE="
+MyPetF="MTE1NDAxNzgwMDAwMDAwNDM2NjU4MzU="
 
-ForOtherPet1=""
-ForOtherPet2=""
-ForOtherPet3=""
-ForOtherPet4=""
-ForOtherPet5=""
-ForOtherPet6=""
+
+ForOtherPet1="${MyPetA}@${MyPetB}@${MyPetC}@${MyPetD}@${MyPetE}@${MyPetF}"
 
 
 ################################## 定义种豆得豆互助（选填） ##################################
 ## 具体填法及要求详见：https://github.com/EvineDeng/jd-base/wiki/FAQ
-MyBean1=""
-MyBean2=""
-MyBean3=""
-MyBean4=""
-MyBean5=""
-MyBean6=""
-MyBeanA=""
-MyBeanB=""
+MyBeanA="mxevgfcbhsvhipacfx67vvkbpxtfpmrljik7qsq"
+MyBeanB="4npkonnsy7xi2jm3w3jbodaxuy3mvgrjkqumgja"
+MyBeanC="npm7g47yodunjpamcthe4krkce"
+MyBeanD="wsr6thb5bd25lhf6jmueldfii67p6ibkinrjwya"
+MyBeanE="ckfols2jxbzmijih3cl57kzhqm"
+MyBeanF="olmijoxgmjutys73edbyorqqiddzghknod2felq"
 
-ForOtherBean1=""
-ForOtherBean2=""
-ForOtherBean3=""
-ForOtherBean4=""
-ForOtherBean5=""
-ForOtherBean6=""
+
+ForOtherBean1="${MyBeanA}@${MyBeanB}@${MyBeanC}@${MyBeanD}@${MyBeanE}@${MyBeanF}"
+
 
 
 ################################## 定义京喜工厂互助（选填） ##################################
 ## 具体填法及要求详见：https://github.com/EvineDeng/jd-base/wiki/FAQ
-MyDreamFactory1=""
-MyDreamFactory2=""
-MyDreamFactory3=""
-MyDreamFactory4=""
-MyDreamFactory5=""
-MyDreamFactory6=""
-MyDreamFactoryA=""
-MyDreamFactoryB=""
+MyDreamFactoryA="tk4wFjbA-wJTLfMpcmvoBgxCuUGT-f5lP4lVuMpYOew="
+MyDreamFactoryB="97mk3cZQ8f1yN7qOLEKJ9w=="
+MyDreamFactoryC="gmLsVlqEoT8fK0XanRaASQ=="
+MyDreamFactoryD="rV4tmxib8_smTh3fiLaS3w=="
+MyDreamFactoryE="QqKN6JCXvCamq2KdUYGQHA=="
+MyDreamFactoryF="NbgCcCRNat_f-3D81Yez1A=="
 
-ForOtherDreamFactory1=""
-ForOtherDreamFactory2=""
-ForOtherDreamFactory3=""
-ForOtherDreamFactory4=""
-ForOtherDreamFactory5=""
-ForOtherDreamFactory6=""
+
+ForOtherDreamFactory1="${MyDreamFactoryA}@${MyDreamFactoryB}@${MyDreamFactoryC}@${MyDreamFactoryD}@${MyDreamFactoryE}@${MyDreamFactoryF}"
 
 
 ################################## 定义东东工厂互助（选填） ##################################
 ## 具体填法及要求详见：https://github.com/EvineDeng/jd-base/wiki/FAQ
-MyJdFactory1=""
-MyJdFactory2=""
-MyJdFactory3=""
-MyJdFactory4=""
-MyJdFactory5=""
-MyJdFactory6=""
-MyJdFactoryA=""
-MyJdFactoryB=""
+MyJdFactoryA="T024vP9wQBke_FfePRv3kfAPfB0qCjVWnYaS5kRrbA"
+MyJdFactoryB="T0225KkcRxsd8gaGdUz3l6YIdQCjVWnYaS5kRrbA"
+MyJdFactoryC="T010_7gmFUBBqgCjVWnYaS5kRrbA"
+MyJdFactoryD="T0205KkcGnhHqh2NaFKy7a5vCjVWnYaS5kRrbA"
+MyJdFactoryE="T01457s6F1tG9VDVJQCjVWnYaS5kRrbA"
+MyJdFactoryF="T0225KkcRkpNp1DXKRv0nfMNdACjVWnYaS5kRrbA"
 
-ForOtherJdFactory1=""
-ForOtherJdFactory2=""
-ForOtherJdFactory3=""
-ForOtherJdFactory4=""
-ForOtherJdFactory5=""
-ForOtherJdFactory6=""
+
+ForOtherJdFactory1="${MyJdFactoryA}@${MyJdFactoryB}@${MyJdFactoryC}@${MyJdFactoryD}@${MyJdFactoryE}@${MyJdFactoryF}"
+
 
 
 ################################## 定义京东赚赚互助（选填） ##################################
@@ -235,37 +203,27 @@ ForOtherJdzz6=""
 
 ################################## 定义疯狂的JOY互助（选填） ##################################
 ## 具体填法及要求详见：https://github.com/EvineDeng/jd-base/wiki/FAQ
-MyJoy1=""
-MyJoy2=""
-MyJoy3=""
-MyJoy4=""
-MyJoy5=""
-MyJoy6=""
-MyJoyA=""
-MyJoyB=""
+MyJoyA="2tT-69nyRXqP0LCwGOJ1uRXmUODYkzx6"
+MyJoyB="LrGGh3MT1TXnQY68Wk6Yz6t9zd5YaBeE"
+MyJoyC="SWayOxvHxM4="
+MyJoyD="jPFoAqjgRboJQBA7Gjt5gQ=="
+MyJoyE="vybrbGLY_uoSukCWrD40VA=="
+MyJoyF="diW2lAk_4rbY6UxB_Yc2XKt9zd5YaBeE"
 
-ForOtherJoy1=""
-ForOtherJoy2=""
-ForOtherJoy3=""
-ForOtherJoy4=""
-ForOtherJoy5=""
-ForOtherJoy6=""
+
+ForOtherJoy1="${MyJoyA}@${MyJoyB}@${MyJoyC}@${MyJoyD}@${MyJoyE}@${MyJoyF}"
+
 
 
 ################################## 定义京喜农场互助（选填） ##################################
 ## 具体填法及要求详见：https://github.com/EvineDeng/jd-base/wiki/FAQ
-## 京喜农场助力码为 JSON 格式因此使用单引号，json 格式如下
-## {"smp":"22bdadsfaadsfadse8a","active":"jdnc_1_btorange210113_2","joinnum":"1"}
-## 助力码获取可以通过 bash jd.sh jd_get_share_code now 命令获取
-## 注意：京喜农场 种植种子发生变化的时候，互助码也会变！！
-MyJxnc1=''
-MyJxnc2=''
-MyJxnc3=''
-MyJxnc4=''
-MyJxnc5=''
-MyJxnc6=''
-MyJxncA=''
-MyJxncB=''
+MyJxncA=""
+MyJxncB=""
+MyJxncC=""
+MyJxncD=""
+MyJxncE=""
+MyJxncF=""
+
 
 ForOtherJxnc1=""
 ForOtherJxnc2=""
@@ -328,81 +286,29 @@ ForOtherCash6=""
 
 ################################## 定义闪购盲盒互助（选填） ##################################
 ## 具体填法及要求详见：https://github.com/EvineDeng/jd-base/wiki/FAQ
-MySgmh1=""
-MySgmh2=""
-MySgmh3=""
-MySgmh4=""
-MySgmh5=""
-MySgmh6=""
-MySgmhA=""
-MySgmhB=""
+MySgmhA="T024vP9wQBke_FfePRv3kfAPfB0qCjVWmIaW5kRrbA"
+MySgmhB="T0225KkcRxsd8gaGdUz3l6YIdQCjVWmIaW5kRrbA"
+MySgmhC="T010_7gmFUBBqgCjVWmIaW5kRrbA"
+MySgmhD="T0205KkcGnhHqh2NaFKy7a5vCjVWmIaW5kRrbA"
+MySgmhE="T01457s6F1tG9VDVJQCjVWmIaW5kRrbA"
+MySgmhF="T0225KkcRkpNp1DXKRv0nfMNdACjVWmIaW5kRrbA"
 
-ForOtherSgmh1=""
-ForOtherSgmh2=""
-ForOtherSgmh3=""
-ForOtherSgmh4=""
-ForOtherSgmh5=""
-ForOtherSgmh6=""
+ForOtherSgmh1="${MySgmhA}@${MySgmhB}@${MySgmhC}@${MySgmhD}@${MySgmhE}@${MySgmhF}"
 
 
 ################################## 定义2020年炸年兽活动互助（选填） ##################################
 ## 具体填法及要求详见：https://github.com/EvineDeng/jd-base/wiki/FAQ
 ## 仅2021年2月12日前有效
-MyNian1=""
-MyNian2=""
-MyNian3=""
-MyNian4=""
-MyNian5=""
-MyNian6=""
-MyNianA=""
-MyNianB=""
-
-ForOtherNian1=""
-ForOtherNian2=""
-ForOtherNian3=""
-ForOtherNian4=""
-ForOtherNian5=""
-ForOtherNian6=""
+MyNianA="cgxZLWOBJL3d4w3AFQSq6h9rtk6Qi3R5BVTg2gF-XLMauv-8aS_MyUuSMFLCLhSz"
+MyNianB="cgxZdTXtI7_e7VyYXVOq7KQqXObyd-w3Zoa8o_Hu7q_zDM09UFWC10OnfQo"
+MyNianC="cgxZdTXtIu6OuArJAQSp5uL7-6UoOATguH4X2aRNutwcdCpcOZKW7THjNVs"
+MyNianD="cgxZbiTXceSCtUKFa2quuFIvQHXbX7s"
+MyNianE="cgxZdTXtftyEtUeTQE3vlkDAYflXxLewtOcL4kLKQPR2c-L3QJXD_l8"
+MyNianF="cgxZdifLc_-F6grLDUnljAl77tpbKJap8EApEyWS"
 
 
-################################## 定义2020年炸年兽组队PK互助（选填） ##################################
-## 具体填法及要求详见：https://github.com/EvineDeng/jd-base/wiki/FAQ
-## 仅2021年2月12日前有效
-MyNianPk1=""
-MyNianPk2=""
-MyNianPk3=""
-MyNianPk4=""
-MyNianPk5=""
-MyNianPk6=""
-MyNianPkA=""
-MyNianPkB=""
+ForOtherNian1="${MyNianA}@${MyNianB}@${MyNianC}@${MyNianD}@${MyNianE}@${MyNianF}"
 
-ForOtherNianPk1=""
-ForOtherNianPk2=""
-ForOtherNianPk3=""
-ForOtherNianPk4=""
-ForOtherNianPk5=""
-ForOtherNianPk6=""
-
-
-################################## 定义神仙书院活动互助（选填） ##################################
-## 具体填法及要求详见：https://github.com/EvineDeng/jd-base/wiki/FAQ
-## 仅2021年2月5日前有效
-MyImmortal1=""
-MyImmortal2=""
-MyImmortal3=""
-MyImmortal4=""
-MyImmortal5=""
-MyImmortal6=""
-MyImmortalA=""
-MyImmortalB=""
-
-ForOtherImmortal1=""
-ForOtherImmortal2=""
-ForOtherImmortal3=""
-ForOtherImmortal4=""
-ForOtherImmortal5=""
-ForOtherImmortal6=""
 
 
 ################################## 定义东东超市蓝币兑换数量（选填） ##################################
@@ -412,12 +318,12 @@ ForOtherImmortal6=""
 ## 三、1000：表示兑换1000个京豆
 ## 四、可兑换清单的商品名称，输入能跟唯一识别出来的关键词即可，比如：MARKET_COIN_TO_BEANS="抽纸"
 ## 注意：有些比较贵的实物商品京东只是展示出来忽悠人的，即使你零点用脚本去抢，也会提示没有或提示已下架
-export MARKET_COIN_TO_BEANS="0"
+export MARKET_COIN_TO_BEANS=""
 
 
 ################################## 定义东东超市蓝币成功兑换奖品是否静默运行（选填） ##################################
 ## 默认 "false" 关闭（即:奖品兑换成功后会发出通知提示），如需要静默运行不发出通知，请改为 "true"
-export MARKET_REWARD_NOTIFY=""
+export MARKET_REWARD_NOTIFY="false"
 
 
 ################################## 定义东东超市是否自动升级商品和货架（选填） ##################################
@@ -433,7 +339,7 @@ export SUPERMARKET_UPGRADE=""
 
 ################################## 定义东东超市是否自动使用金币去抽奖（选填） ##################################
 ## 是否用金币去抽奖，默认 "false" 关闭，如需开启，请修改为 "true"
-export SUPERMARKET_LOTTERY=""
+export SUPERMARKET_LOTTERY="true"
 
 
 ################################## 定义东东超市是否自动参加PK队伍（选填） ##################################
@@ -444,7 +350,7 @@ export JOIN_PK_TEAM=""
 ################################## 定义东东农场是否静默运行（选填） ##################################
 ## 默认为 "false"，不静默，发送推送通知消息，如不想收到通知，请修改为 "true"
 ## 如果你不想完全关闭或者完全开启通知，只想在特定的时间发送通知，可以参考下面的“定义东东萌宠是否静默运行”部分，设定几个if判断条件
-export FRUIT_NOTIFY_CONTROL=""
+export FRUIT_NOTIFY_CONTROL="true"
 
 
 ################################## 定义东东农场是否使用水滴换豆卡（选填） ##################################
@@ -457,24 +363,24 @@ export FRUIT_BEAN_CARD=""
 ## 你期望的宠汪汪每次喂食克数，只能填入10、20、40、80，默认为10
 ## 如实际持有食物量小于所设置的克数，脚本会自动降一档，直到降无可降
 ## 具体情况请自行在宠汪汪游戏中去查阅攻略
-export JOY_FEED_COUNT=""
+export JOY_FEED_COUNT="10"
 
 
 ################################## 定义宠汪汪兑换京豆数量（选填） ##################################
 ## 目前的可用值包括：0、20、500、1000，其中0表示为不自动兑换京豆，如不设置，将默认为"20"
 ## 不同等级可兑换不同数量的京豆，详情请见宠汪汪游戏中兑换京豆选项
 ## 500、1000的京豆每天有总量限制，设置了并且你也有足够积分时，也并不代表就一定能抢到
-export JD_JOY_REWARD_NAME=""
+export JD_JOY_REWARD_NAME="20"
 
 
 ################################## 定义宠汪汪兑换京豆是否静默运行（选填） ##################################
 ## 默认为 "false"，在成功兑换京豆时将发送推送通知消息（失败不发送），如想要静默不发送通知，请修改为 "true"
-export JD_JOY_REWARD_NOTIFY=""
+export JD_JOY_REWARD_NOTIFY="true"
 
 
 ################################## 定义宠汪汪是否自动给好友的汪汪喂食（选填） ##################################
 ## 默认 "false" 不会自动给好友的汪汪喂食，如想自动喂食，请改成 "true"
-export JOY_HELP_FEED=""
+export JOY_HELP_FEED="true"
 
 
 ################################## 定义宠汪汪是否自动报名宠物赛跑（选填） ##################################
@@ -487,12 +393,12 @@ export JOY_RUN_FLAG=""
 ## 可选值：2,10,50，其他值不可以。其中2代表参加双人PK赛，10代表参加10人突围赛，50代表参加50人挑战赛，不填时默认为2
 ## 各个账号间请使用 & 分隔，比如：JOY_TEAM_LEVEL="2&2&50&10"
 ## 如果你有5个账号但只写了四个数字，那么第5个账号将默认参加2人赛，账号如果更多，与此类似
-export JOY_TEAM_LEVEL=""
+export JOY_TEAM_LEVEL="2"
 
 
 ################################## 定义宠汪汪赛跑获胜后是否推送通知（选填） ##################################
 ## 控制jd_joy.js脚本宠汪汪赛跑获胜后是否推送通知，"false" 为否(不推送通知消息)，"true" 为是(即：发送推送通知消息)，默认为 "true"
-export JOY_RUN_NOTIFY=""
+export JOY_RUN_NOTIFY="false"
 
 
 ################################## 定义摇钱树是否自动将金果卖出变成金币（选填） ##################################
@@ -506,9 +412,9 @@ export MONEY_TREE_SELL_FRUIT=""
 ## 除掉上述提及时间之外，均设置为 true，静默不发通知
 ## 特别说明：针对北京时间有效。
 if [ $(date "+%w") -eq 6 ] && [ $(date "+%H") -ge 9 ] && [ $(date "+%H") -lt 14 ]; then
-  export PET_NOTIFY_CONTROL="false"
+  export PET_NOTIFY_CONTROL="true"
 elif [ $(date "+%w") -eq 3 ] && [ $(date "+%H") -ge 9 ] && [ $(date "+%H") -lt 14 ]; then
-  export PET_NOTIFY_CONTROL="false"
+  export PET_NOTIFY_CONTROL="true"
 else
   export PET_NOTIFY_CONTROL="true"
 fi
@@ -528,16 +434,16 @@ export FACTORAY_WANTPRODUCT_NAME=""
 
 ################################## 定义京喜农场通知级别（选填） ##################################
 ## 可用值： 0(不通知); 1(本次获得水滴>0); 2(任务执行); 3(任务执行+未种植种子)，默认为"3"
-export JXNC_NOTIFY_LEVEL="3"
+export JXNC_NOTIFY_LEVEL="0"
 
 
 ################################## 定义取关参数（选填） ##################################
 ## jd_unsubscribe这个任务是用来取关每天做任务关注的商品和店铺，默认在每次运行时取关20个商品和20个店铺
 ## 如果取关数量不够，可以根据情况增加，还可以设置 jdUnsubscribeStopGoods 和 jdUnsubscribeStopShop 
 ## 商品取关数量
-goodPageSize=""
+goodPageSize="50"
 ## 店铺取关数量
-shopPageSize=""
+shopPageSize="50"
 ## 遇到此商品不再取关此商品以及它后面的商品，需去商品详情页长按拷贝商品信息
 jdUnsubscribeStopGoods=""
 ## 遇到此店铺不再取关此店铺以及它后面的店铺，请从头开始输入店铺名称
@@ -555,13 +461,13 @@ export UN_BIND_STOP_CARD=""
 
 ################################## 疯狂的JOY（选填） ##################################
 ## 疯狂的JOY循环助力，"true" 表示循环助力，"false" 表示不循环助力，默认 "false"
-export JDJOY_HELPSELF=""
+export JDJOY_HELPSELF="true"
 
 ## 疯狂的JOY京豆兑换，目前最小值为500/1000京豆，默认为 "0" 不开启京豆兑换
-export JDJOY_APPLYJDBEAN=""
+export JDJOY_APPLYJDBEAN="2000"
 
 ## 疯狂的JOY自动购买什么等级的JOY，如需要使用请自行解除注释
-# export BUY_JOY_LEVEL=""
+# export BUY_JOY_LEVEL="29"
 
 
 ################################## 定义是否自动加购物车（选填） ##################################
@@ -572,7 +478,7 @@ export PURCHASE_SHOPS=""
 ################################## 你所处的经纬度（选填） ##################################
 ## 神仙书院（jd_immortal.js）这个脚本所需的，你所处的经纬度，用于做逛身边好店任务，如：export JD_IMMORTAL_LATLON='{"lat":33.1, "lng":118.1}'
 ## 可以使用手机自带的指南针获取所在经纬度，越精确越好，最长可保留小数点后9位数字
-export JD_IMMORTAL_LATLON=''
+export JD_IMMORTAL_LATLON='{"lat":23.05830, "lng":113.76243}'
 
 
 ################################## 京东炸年兽小程序自定义UA变量（选填） ##################################

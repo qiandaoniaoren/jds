@@ -16,40 +16,79 @@
 5 9 * * * bash jd jd_bean_change
 28 5 * * * bash jd jd_bean_home
 4 0,9 * * * bash jd jd_bean_sign
-0,30 0 * * * bash jd jd_blueCoin
+0 11,14 * * * bash jd jd_blueCoin now
+59 23 * * * sleep 57 bash jd jd_blueCoin1 now
+59 23 * * * sleep 58 bash jd jd_blueCoin1 now
+59 23 * * * sleep 59 bash jd jd_blueCoin1 now
+59 23 * * * sleep 56 bash jd jd_blueCoin1 now
+0 0 * * * sleep 1 bash jd jd_blueCoin1 now
+0 0 * * * sleep 2 bash jd jd_blueCoin1 now
 12 8,12,18 * * * bash jd jd_bookshop
 37 7 * * * bash jd jd_car
 13 8,22 * * * bash jd jd_cash
-0 0 * * * bash jd jd_car_exchange
+0 0 * * * bash jd jd_car_exchange now
+59 23 * * * sleep 57 bash jd jd_car_exchange now
+59 23 * * * sleep 58 bash jd jd_car_exchange now
+59 23 * * * sleep 59 bash jd jd_car_exchange now
+59 23 * * * sleep 56 bash jd jd_car_exchange now
+0 0 * * * sleep 5 bash jd jd_car_exchange now
+1 0 * * * bash jd jd_car_exchange now
+2 0 * * * bash jd jd_car_exchange now
 2 0 * * * bash jd jd_club_lottery
 43 13 * * * bash jd jd_crazy_joy
-54 2-23/3 * * * bash jd jd_daily_egg
-20 * * * * bash jd jd_dreamFactory
+54 6-23/3 * * * bash jd jd_daily_egg
+*/20 6-23 * * * bash jd jd_dreamFactory
 29 7,12,18 * * * bash jd jd_fruit
 49 6 * * * bash jd jd_get_share_code
-36 * * * * bash jd jd_jdfactory
-14 11 * * * bash jd jd_jdzz
+36 6-23 * * * bash jd jd_jdfactory
+0 0 * * * bash jd jd_jdzz now
 6 0,8,9,13,18,22 * * * bash jd jd_joy
-*/20 0-22 * * * bash jd jd_joy_feedPets
+*/20 6-22 * * * bash jd jd_joy_feedPets
 0 0,8,12,16 * * * bash jd jd_joy_reward
 18 11,14 * * * bash jd jd_joy_run
 0 0,6 * * * bash jd jd_joy_steal
 0 9,12,18 * * * bash jd jd_jxnc
 32 7 * * * bash jd jd_kd
 13-33/5 13 * * * bash jd jd_live
-15 1 * * * bash jd jd_lotteryMachine
-40 */4 * * * bash jd jd_moneyTree
+15 0 * * * bash jd jd_lotteryMachine
+40 6-23/2 * * * bash jd jd_moneyTree
 20 0,20 * * * bash jd jd_necklace
 10 7,12,18 * * * bash jd jd_pet
-25 * * * * bash jd jd_pigPet
-35 7-22 * * * bash jd jd_plantBean
+25 6-23 * * * bash jd jd_pigPet
+35 7-23 * * * bash jd jd_plantBean
 11 0 * * * bash jd jd_rankingList
-1 1 * * * bash jd jd_redPacket
-0 0 * * * bash jd jd_shop
+59 0 * * * bash jd jd_redPacket
+21 0 * * * bash jd jd_shop
 16 0 * * * bash jd jd_small_home
-35 */3 * * * bash jd jd_speed
-9 1-23/5 * * * bash jd jd_superMarket
+35 6-23/2 * * * bash jd jd_speed
+9 6-23/5 * * * bash jd jd_superMarket
 25 9 * * * bash jd jd_syj
 44 5 * * 5 bash jd jd_unbind
 45 23 * * * bash jd jd_unsubscribe
 19 11 * * * bash jd jx_sign
+1 8,9 14-31/1 1 * bash jd jd_bj
+# */20 * * * * bash jd jd_family
+38 8,21 * * * bash jd jd_firecrackers
+# 20 * * * * bash jd jd_gyec
+30 6 * * * bash jd jd_immortal
+30,31 20-23/1 25 1 * bash jd jd_live_redrain now
+0,1 19-21/1 * * * bash jd jd_live_redrain2 now
+30,31 12-23/1 * * * bash jd jd_live_redrain_half now
+0 0,9,11,13,15,17,19,20,21,23 3,5,20-30/1 1,2 * bash jd jd_live_redrain_nian now
+0 0,9,11,13,15,17,19,20,21,22,23 * * * bash jd jd_live_redrain_offical now
+1 7 * * * bash jd jd_mh
+10 7 * * * bash jd jd_ms
+10 8 * * * bash jd jd_nh
+1 9,12,20 * * * bash jd jd_nian
+30 6-23 * * * bash jd jd_nianCollect
+20 0,6,8 * * * bash jd jd_nian_ar
+25 0,6 * * * bash jd jd_nian_sign
+29 0,6,8 * * * bash jd jd_nian_wechat
+27 8 * * * bash jd jd_sgmh
+10 7 * * * bash jd jd_sx
+5 0 19,20 1 * bash jd jd_vote
+# 10 0 * * * bash jd jd_wechat_sign
+5 12 * * * bash jd jd_xg
+# 0 * * * * bash jd jd_xxl
+# 40 * * * * bash jd jd_xxl_gh
+30 9 * * * bash jd jd_festival
