@@ -45,7 +45,7 @@
 6 0,8,9,13,18,22 * * * bash jd jd_joy
 */20 6-22 * * * bash jd jd_joy_feedPets
 2 16 * * * bash jd jd_joy_reward
-0 0,8,16 * * * bash jd jd_joy_reward now
+0 0,8,12,16 * * * bash jd jd_joy_500 now
 18 11,14 * * * bash jd jd_joy_run
 0 0,6 * * * bash jd jd_joy_steal
 0 9,12,18 * * * bash jd jd_jxnc
