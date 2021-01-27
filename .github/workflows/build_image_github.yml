@@ -15,7 +15,7 @@ jobs:
           publish: true
           imageName: ohmybobo/jd
           dockerFile: docker/github/Dockerfile
-          platform: linux/amd64,linux/arm64,linux/arm/v7
-          tag: v2,github
+          platform: linux/amd64
+          tag: latest,github
           dockerUser: ${{ secrets.DOCKER_USERNAME }}
           dockerPassword: ${{ secrets.DOCKER_PASSWORD }}
