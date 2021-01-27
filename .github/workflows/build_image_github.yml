@@ -14,7 +14,7 @@ jobs:
         with:
           publish: true
           imageName: jds
-          dockerFile: docker/github/Dockerfile
+          dockerFile: /docker/github/Dockerfile
           platform: linux/amd64
           tag: latest,github
           dockerUser: ${{ secrets.DOCKER_USERNAME }}
