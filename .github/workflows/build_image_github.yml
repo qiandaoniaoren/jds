@@ -13,9 +13,9 @@ jobs:
         uses: ilteoood/docker_buildx@master
         with:
           publish: true
-          imageName: jds
-          dockerFile: /docker/github/Dockerfile
+          imageName: ohmybobo/jds
+          dockerFile: docker/github/Dockerfile
           platform: linux/amd64
-          tag: latest,github
+          tag: v2,github
           dockerUser: ${{ secrets.DOCKER_USERNAME }}
           dockerPassword: ${{ secrets.DOCKER_PASSWORD }}
