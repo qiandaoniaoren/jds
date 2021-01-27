@@ -16,6 +16,6 @@ jobs:
           imageName: ohmybobo/jd
           dockerFile: docker/github/Dockerfile
           platform: linux/amd64,linux/arm64,linux/arm/v7
-          tag: latest,github
+          tag: v2,github
           dockerUser: ${{ secrets.DOCKER_USERNAME }}
           dockerPassword: ${{ secrets.DOCKER_PASSWORD }}
