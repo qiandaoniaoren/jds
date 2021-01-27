@@ -43,7 +43,7 @@ fi
 
 ## 更新shell脚本
 function Git_PullShell {
-  echo -e "更新shell脚本，原地址：${ShellURL}\n"
+  echo -e "更新shell脚本\n"
   cd ${ShellDir}
   git fetch --all
   ExitStatusShell=$?
@@ -52,7 +52,7 @@ function Git_PullShell {
 
 ## 克隆scripts
 function Git_CloneScripts {
-  echo -e "克隆LXK9301脚本，原地址：${ScriptsURL}\n"
+  echo -e "克隆LXK9301脚本\n"
   git clone -b master ${ScriptsURL} ${ScriptsDir}
   ExitStatusScripts=$?
   echo
@@ -60,7 +60,7 @@ function Git_CloneScripts {
 
 ## 更新scripts
 function Git_PullScripts {
-  echo -e "更新LXK9301脚本，原地址：${ScriptsURL}\n"
+  echo -e "更新LXK9301脚本\n"
   cd ${ScriptsDir}
   git fetch --all
   ExitStatusScripts=$?
@@ -70,7 +70,7 @@ function Git_PullScripts {
 
 ## 克隆scripts2
 function Git_CloneScripts2 {
-  echo -e "克隆shylocks脚本，原地址：${Scripts2URL}\n"
+  echo -e "克隆shylocks脚本\n"
   git clone -b main ${Scripts2URL} ${Scripts2Dir}
   ExitStatusScripts2=$?
   echo
@@ -78,7 +78,7 @@ function Git_CloneScripts2 {
 
 ## 更新scripts2
 function Git_PullScripts2 {
-  echo -e "更新shylocks脚本，原地址：${Scripts2URL}\n"
+  echo -e "更新shylocks脚本\n"
   cd ${Scripts2Dir}
   git fetch --all
   ExitStatusScripts2=$?
@@ -88,7 +88,7 @@ function Git_PullScripts2 {
 
 ## 克隆scripts3
 function Git_CloneScripts3 {
-  echo -e "克隆yangtingxiao脚本，原地址：${Scripts3URL}\n"
+  echo -e "克隆yangtingxiao脚本\n"
   git clone -b main ${Scripts3URL} ${Scripts3Dir}
   ExitStatusScripts3=$?
   echo
@@ -96,7 +96,7 @@ function Git_CloneScripts3 {
 
 ## 更新scripts3
 function Git_PullScripts3 {
-  echo -e "更新yangtingxiao脚本，原地址：${Scripts3URL}\n"
+  echo -e "更新yangtingxiao脚本\n"
   cd ${Scripts3Dir}
   git fetch --all
   ExitStatusScripts3=$?

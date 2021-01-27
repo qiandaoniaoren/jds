@@ -18,21 +18,21 @@ async function update() {
     if (fs.existsSync('new_task')) {
       const newTaskContent = await fs.readFileSync('./new_task', 'utf8');
       if (newTaskContent) {
-        await notify.sendNotify('新增薅羊毛任务通知', newTaskContent);
+        await notify.sendNotify('新增任务', newTaskContent);
       }
     }
 
     if (fs.existsSync('drop_task')) {
       const dropTaskContent = await fs.readFileSync('./drop_task', 'utf8');
       if (dropTaskContent) {
-        await notify.sendNotify('删除失效任务通知', dropTaskContent);
+        await notify.sendNotify('删除失效任务', dropTaskContent);
       }
     }
 
     if (fs.existsSync('version')) {
       const versionContent = await fs.readFileSync('./version', 'utf8');
       if (versionContent) {
-        await notify.sendNotify('配置文件更新通知', versionContent);
+        await notify.sendNotify('配置文件更新', versionContent);
       }
     }
   } catch (err) {
