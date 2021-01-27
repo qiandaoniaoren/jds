@@ -31,7 +31,7 @@ SendCount=${ShellDir}/send_count
 isTermux=${ANDROID_RUNTIME_ROOT}${ANDROID_ROOT}
 WhichDep=$(grep "/jds" "${ShellDir}/.git/config")
 Scripts2URL=https://github.com/shylocks/Loon
-Scripts3URL=https://github.com/yangtingxiao/QuantumultX/tree/master/scripts/jd
+Scripts3URL=https://github.com/yangtingxiao/QuantumultX
 
 if [[ ${WhichDep} == *github* ]]; then
   ScriptsURL=https://github.com/ohmybobo/jd_scripts
@@ -373,7 +373,7 @@ if [ ${ExitStatusShell} -eq 0 ]; then
   [ -d ${Scripts2Dir}/.git ] && Git_PullScripts2 || Git_CloneScripts2
   [ -d ${Scripts3Dir}/.git ] && Git_PullScripts3 || Git_CloneScripts3
   cp -f ${Scripts2Dir}/jd_*.js ${ScriptsDir}
-  cp -f ${Scripts3Dir}/jd_*.js ${ScriptsDir}
+  cp -f ${Scripts3Dir}/scripts/jd/jd_*.js ${ScriptsDir}
 fi
 
 ## 执行各函数
