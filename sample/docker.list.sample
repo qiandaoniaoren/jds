@@ -1,5 +1,5 @@
 # 更新lxk0301大佬的js脚本和EvineDeng的shell脚本，日志为log/git_pull.log
-# 55 5-23 * * * bash git_pull >> ${JD_DIR}/log/git_pull.log 2>&1
+55 5-23 * * * bash git_pull >> ${JD_DIR}/log/git_pull.log 2>&1
 
 # 删除 RmLogDaysAgo 指定天数以前的旧日志，本行为不记录日志
 57 13 * * * bash rm_log >/dev/null 2>&1
@@ -17,24 +17,24 @@
 28 5 * * * bash jd jd_bean_home
 4 0,9 * * * bash jd jd_bean_sign
 0 11,14 * * * bash jd jd_blueCoin now
-59 23 * * * sleep 57 bash jd jd_blueCoin1 now
-59 23 * * * sleep 58 bash jd jd_blueCoin1 now
-59 23 * * * sleep 59 bash jd jd_blueCoin1 now
-59 23 * * * sleep 56 bash jd jd_blueCoin1 now
-0 0 * * * sleep 1 bash jd jd_blueCoin1 now
-0 0 * * * sleep 2 bash jd jd_blueCoin1 now
+59 23 * * * sleep 57; bash jd jd_blueCoin1 now
+59 23 * * * sleep 58; bash jd jd_blueCoin1 now
+59 23 * * * sleep 59; bash jd jd_blueCoin1 now
+59 23 * * * sleep 56; bash jd jd_blueCoin1 now
+0 0 * * * sleep 1; bash jd jd_blueCoin1 now
+0 0 * * * sleep 2; bash jd jd_blueCoin1 now
 12 8,12,18 * * * bash jd jd_bookshop
 37 7 * * * bash jd jd_car
 13 8,22 * * * bash jd jd_cash
 0 0 * * * bash jd jd_car_exchange now
-59 23 * * * sleep 57 bash jd jd_car_exchange now
-59 23 * * * sleep 58 bash jd jd_car_exchange now
-59 23 * * * sleep 59 bash jd jd_car_exchange now
-59 23 * * * sleep 56 bash jd jd_car_exchange now
-0 0 * * * sleep 5 bash jd jd_car_exchange now
+59 23 * * * sleep 57; bash jd jd_car_exchange now
+59 23 * * * sleep 58; bash jd jd_car_exchange now
+59 23 * * * sleep 59; bash jd jd_car_exchange now
+59 23 * * * sleep 56; bash jd jd_car_exchange now
+0 0 * * * sleep 5; bash jd jd_car_exchange now
 1 0 * * * bash jd jd_car_exchange now
 2 0 * * * bash jd jd_car_exchange now
-2 0 * * * bash jd jd_club_lottery
+3 0 * * * bash jd jd_club_lottery
 43 13 * * * bash jd jd_crazy_joy
 54 6-23/3 * * * bash jd jd_daily_egg
 */20 6-23 * * * bash jd jd_dreamFactory
@@ -44,7 +44,7 @@
 0 0 * * * bash jd jd_jdzz now
 6 0,8,9,13,18,22 * * * bash jd jd_joy
 */20 6-22 * * * bash jd jd_joy_feedPets
-0 0,8,12,16 * * * bash jd jd_joy_reward
+59 15 * * * sleep 58; bash jd jd_joy_reward now
 18 11,14 * * * bash jd jd_joy_run
 0 0,6 * * * bash jd jd_joy_steal
 0 9,12,18 * * * bash jd jd_jxnc
@@ -92,3 +92,13 @@
 # 0 * * * * bash jd jd_xxl
 # 40 * * * * bash jd jd_xxl_gh
 30 9 * * * bash jd jd_festival
+0 0,8,16 * * * bash jd jd_joy_500 now
+59 23,7,15 * * * sleep 58; bash jd jd_joy_500 now
+59 23,7,15 * * * sleep 59; bash jd jd_joy_500 now
+59 23,7,15 * * * sleep 57; bash jd jd_joy_500 now
+40 21 * * * bash jd jd_super
+
+0 0 * * *  bash jd jd_coupon
+29,30 12-23/1 * * * sleep 58; bash jd jd_live_redrain_half_2 now
+29,30 12-23/1 * * * sleep 59; bash jd jd_live_redrain_half_2 now
+30,31 12-23/1 * * * bash jd jd_live_redrain_half_2 now

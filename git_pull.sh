@@ -2,8 +2,8 @@
 
 ## Author: Evine Deng
 ## Source: https://github.com/ohmybobo/jds
-## Modified： 2021-01-22
-## Version： v3.6.1
+## Modified： 2021-01-27
+## Version： v2.0
 
 ## 文件路径、脚本网址、文件版本以及各种环境的判断
 ShellDir=${JD_DIR:-$(cd $(dirname $0); pwd)}
@@ -12,6 +12,7 @@ LogDir=${ShellDir}/log
 [ ! -d ${LogDir} ] && mkdir -p ${LogDir}
 ScriptsDir=${ShellDir}/scripts
 Scripts2Dir=${ShellDir}/scripts2
+Scripts3Dir=${ShellDir}/scripts3
 ConfigDir=${ShellDir}/config
 FileConf=${ConfigDir}/config.sh
 FileDiy=${ConfigDir}/diy.sh
@@ -30,6 +31,7 @@ SendCount=${ShellDir}/send_count
 isTermux=${ANDROID_RUNTIME_ROOT}${ANDROID_ROOT}
 WhichDep=$(grep "/jds" "${ShellDir}/.git/config")
 Scripts2URL=https://github.com/shylocks/Loon
+Scripts3URL=https://github.com/yangtingxiao/QuantumultX/tree/master/scripts/jd
 
 if [[ ${WhichDep} == *github* ]]; then
   ScriptsURL=https://github.com/ohmybobo/jd_scripts
@@ -81,6 +83,24 @@ function Git_PullScripts2 {
   git fetch --all
   ExitStatusScripts2=$?
   git reset --hard origin/main
+  echo
+}
+
+## 克隆scripts3
+function Git_CloneScripts3 {
+  echo -e "克隆yangtingxiao脚本，原地址：${Scripts3URL}\n"
+  git clone -b main ${Scripts3URL} ${Scripts3Dir}
+  ExitStatusScripts3=$?
+  echo
+}
+
+## 更新scripts3
+function Git_PullScripts3 {
+  echo -e "更新yangtingxiao脚本，原地址：${Scripts3URL}\n"
+  cd ${Scripts3Dir}
+  git fetch --all
+  ExitStatusScripts3=$?
+  git reset --hard origin/master
   echo
 }
 
@@ -351,7 +371,9 @@ if [ ${ExitStatusShell} -eq 0 ]; then
   [ -f ${ScriptsDir}/package.json ] && PackageListOld=$(cat ${ScriptsDir}/package.json)
   [ -d ${ScriptsDir}/.git ] && Git_PullScripts || Git_CloneScripts
   [ -d ${Scripts2Dir}/.git ] && Git_PullScripts2 || Git_CloneScripts2
+  [ -d ${Scripts3Dir}/.git ] && Git_PullScripts3 || Git_CloneScripts3
   cp -f ${Scripts2Dir}/jd_*.js ${ScriptsDir}
+  cp -f ${Scripts3Dir}/jd_*.js ${ScriptsDir}
 fi
 
 ## 执行各函数

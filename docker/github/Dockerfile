@@ -1,11 +1,13 @@
 FROM node:lts-alpine
-LABEL maintainer="Evine Deng <Evine@foxmail.com>"
+LABEL maintainer="ohmybobo<bg7jsi@qq.com>"
 ARG JD_BASE_URL=https://github.com/ohmybobo/jds
 ARG JD_BASE_BRANCH=main
 ARG JD_SCRIPTS_URL=https://github.com/LXK9301/jd_scripts
 ARG JD_SCRIPTS_BRANCH=master
 ARG JD_SCRIPTS2_URL=https://github.com/shylocks/Loon
 ARG JD_SCRIPTS2_BRANCH=main
+ARG JD_SCRIPTS3_URL=https://github.com/yangtingxiao/QuantumultX/tree/master/scripts/jd
+ARG JD_SCRIPTS3_BRANCH=master
 ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin \
     LANG=zh_CN.UTF-8 \
     SHELL=/bin/bash \
@@ -37,6 +39,7 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
     && npm install \
     && npm install -g pm2 \
     && git clone -b ${JD_SCRIPTS2_BRANCH} ${JD_SCRIPTS2_URL} ${JD_DIR}/scripts2 \
+    && git clone -b ${JD_SCRIPTS3_BRANCH} ${JD_SCRIPTS3_URL} ${JD_DIR}/scripts3 \
     && ln -sf ${JD_DIR}/jd.sh /usr/local/bin/jd \
     && ln -sf ${JD_DIR}/git_pull.sh /usr/local/bin/git_pull \
     && ln -sf ${JD_DIR}/rm_log.sh /usr/local/bin/rm_log \
